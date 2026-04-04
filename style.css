@@ -10,36 +10,26 @@ body {
     color: #214662;
 }
 
-button {
-    background: #E1DFE1;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
-
-------------------------------------------------------- alterar tamanho botoes
-
 .navbar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: #E1DFE1;
-    padding: 8px 15px;
-    border-radius: 10px;    
-    font-size: 14px;
-    font-weight: 500;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;        
+    padding: 10px 10px;
+    background: rgba(201, 156, 156, 0.03);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(102, 97, 97, 0.281);
 }
 
 .navbar h1 {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 86vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +38,18 @@ button {
 .carousel {
     position: relative;
     width: 300px;
-    height: 400px;
+    height: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background: #E1DFE1;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .card {
@@ -71,33 +72,39 @@ button {
     opacity: 1;
 }
 
+.card.active h2 {
+    margin: 15px 0 -10px;
+}
+
+.card.active p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.7;
+    color: #f8f5f1;
+}
+
 .card.next {
-    transform: scale(0.9) translateX(120px);
+    transform: scale(0.9) translateX(140px);
     z-index: 4;
     opacity: 0.8;
 }
 
 .card.next-2 {
-    transform: scale(0.8) translateX(220px);
+    transform: scale(0.8) translateX(240px);
     z-index: 3;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .card.prev {
-    transform: scale(0.9) translateX(-120px);
+    transform: scale(0.9) translateX(-140px);
     z-index: 4;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .card.prev-2 {
-    transform: scale(0.8) translateX(-220px);
+    transform: scale(0.8) translateX(-240px);
     z-index: 3;
-    opacity: 0.6;
-}
-
-.card.hidder {
-    opacity: 0;
-    z-index: 1;
+    opacity: 0.5;
 }
 
 .card img {
@@ -126,7 +133,7 @@ button {
 }
 
 .arrow.right {
-    right: 50px;
+    right: 80px;
 }
 
 .pagination {
@@ -152,15 +159,53 @@ button {
 
 .icon {
     width: 24px;
-    height: 24px;
+    height: 24px; 
+}
+
+.arrow .icon {
     stroke: #214662;
     fill: none;
-    stroke-width: 2;
+}
+
+.play {
+    width: 55px;
+    height: 55px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.player button {
+    background: #E1DFE1;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.player button:hover {
+    background: #d6d4d6;
+    transform: scale(1.1);
+}
+
+.player .icon {
+    stroke: #214662;
+    fill: none;
 }
 
 .play .icon {
     fill: #214662;
-    stroke: none;
+    stroke: none;    
 }
 
 footer {
@@ -200,4 +245,12 @@ footer {
     opacity: 0.6;
 }
 
-parei nos botoes do card
+@media (max-width: 768px) {
+    .card.prev,
+    .card.next,
+    .card.prev-2,
+    .card.next-2 {
+        transform: scale(0.9) translateY(20px);
+        opacity: 0.5;
+    }
+}
