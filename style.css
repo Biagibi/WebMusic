@@ -36,6 +36,42 @@ body {
     justify-content: center;
 }
 
+button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.arrow.left {
+    left: 50px;
+}
+
+.arrow.right {
+    right: 80px;
+}
+
+.arrow .icon {
+    stroke: #214662;
+    fill: none;
+    width: 45px;
+    height: 45px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px; 
+}
+
 .carousel {
     position: relative;
     width: 300px;
@@ -43,12 +79,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-button {
-    border: none;
-    padding: 10px;
-    cursor: pointer;
 }
 
 .card {
@@ -132,63 +162,6 @@ button {
     opacity: 0.8;
 }
 
-.arrow {
-    position: absolute;
-    top: 50%;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
-
-.arrow.left {
-    left: 50px;
-}
-
-.arrow.right {
-    right: 80px;
-}
-
-.arrow .icon {
-    stroke: #214662;
-    fill: none;
-    width: 45px;
-    height: 45px;
-}
-
-.pagination {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #95a6b7;
-    box-shadow: 0 2px 10px rgba(102, 97, 97, 0.281);
-}
-
-.dot.active {
-    background: #214662;
-}
-
-.icon {
-    width: 24px;
-    height: 24px; 
-}
-
-.play {
-    width: 55px;
-    height: 55px;
-}
-
 .player {
     display: flex;
     align-items: center;
@@ -224,6 +197,11 @@ button {
     fill: none;
 }
 
+.play {
+    width: 55px;
+    height: 55px;
+}
+
 .play .icon {
     fill: #214662;
     stroke: none;    
@@ -243,6 +221,34 @@ button {
     width: 0%;
     background: #214662;
     transition: width 0.1s linear;
+}
+
+.pagination {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #95a6b7;
+    box-shadow: 0 2px 10px rgba(102, 97, 97, 0.281);
+}
+
+.dot.active {
+    background: #214662;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
 }
 
 footer {
@@ -276,11 +282,6 @@ footer {
     opacity: 1;
 }
 
-.disclaimer {
-    text-align: center;
-    font-size: 12px;
-    opacity: 0.6;
-}
 
 @media (max-width: 768px) {
     .card.prev,

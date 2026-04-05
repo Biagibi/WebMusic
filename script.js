@@ -7,6 +7,18 @@ const dots = document.querySelectorAll(".dot");
 const playButtons = document.querySelectorAll(".play");
 const audios = document.querySelectorAll("audio");
 
+audios.forEach((audio) => {
+    audio.addEventListener("timeupdate", () => {
+        const card = audio.closest(".card");
+        const progress = card.querySelector(".progress");
+
+        if (!progress || !audio.duration) return;
+
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = percent + "%";
+    });
+});
+
 function updateCarousel() {
     cards.forEach((card, index) => {        
         card.className = "card";
@@ -37,22 +49,15 @@ function updateCarousel() {
         `;
     });  
 
-    audios.forEach((audio) => {
-        audio.addEventListener("timeupdate", () => {
-            const card = audio.closest(".card");
-            const progress = card.querySelector(".progress");
-    
-            if (!progress || !audio.duration) return;
-        
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progress.style.width = percent + "%";
-        });
+    audios.forEach(a => {
+        a.pause();
+        a.currentTime = 0
     });
 
     const activeCard = document.querySelector(".card.active");
     const activeAudio = activeCard.querySelector("audio");
 
-    activeAudio.play();
+    activeAudio.play().catch(() => {});
     
     const activeButton = activeCard.querySelector(".play svg");
 
@@ -132,6 +137,3 @@ document.querySelectorAll(".progress-container").forEach(container => {
 });
 
 updateCarousel();
-
-
-//corrigir não esta pausando a musica após passar pro proximo card
