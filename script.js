@@ -1,4 +1,7 @@
 let current = 0;
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
 
 const cards = document.querySelectorAll(".card");
 const nextBtn = document.querySelector(".arrow.right");
@@ -97,7 +100,7 @@ playButtons.forEach((btn) => {
         if (audio.paused) {
             audios.forEach(a => {
                 a.pause();
-                a.currentTime = 0;
+                
             });
 
             document.querySelectorAll(".play svg").forEach(icon => {
@@ -137,3 +140,82 @@ document.querySelectorAll(".progress-container").forEach(container => {
 });
 
 updateCarousel();
+
+const carousel = document.querySelector(".carousel");
+
+function startDrag(x) {
+    startX = x;
+    currentX = startX;
+    isDragging = true;
+    carousel.classList.add("dragging");
+
+    carousel.classList.add("dragging");
+
+    cards.forEach(card => {
+        card.style.transition = "none";
+    });
+}
+
+function moveDrag(x) {
+    if (!isDragging) return;
+
+    currentX = x;
+
+    const diff = Math.max(-150, Math.min(150, currentX - startX));
+
+    const activeCard = document.querySelector(".card.active");
+    if (activeCard) {
+        activeCard.style.transform = `translateX(${diff}px) scale(1)`;
+    }
+}
+
+function endDrag() {
+    if (!isDragging) return;
+
+    const diff = (currentX || startX) - startX;
+
+    if (Math.abs(diff) < 10) {
+        isDragging = false;
+        carousel.classList.remove("dragging");
+        return;
+    }
+
+    cards.forEach(card => {
+        card.style.transition = "";
+    });
+    
+    const activeCard = document.querySelector(".card.active");
+    activeCard.style.transform = "";
+    
+    if (diff < -50) {        
+        current = (current + 1) % cards.length;
+
+    } else if (diff > 50) {        
+        current = (current - 1 + cards.length) % cards.length;
+    }
+
+    updateCarousel();
+
+    isDragging = false;
+    carousel.classList.remove("dragging");
+}
+
+carousel.addEventListener("touchstart", (e) => {
+    startDrag(e.touches[0].clientX);
+});
+
+carousel.addEventListener("touchmove", (e) => {
+    moveDrag(e.touches[0].clientX);
+});
+
+carousel.addEventListener("touchend", endDrag);
+
+carousel.addEventListener("mousedown", (e) => {
+   startDrag(e.clientX);
+});
+
+window.addEventListener("mousemove", (e) => {
+    moveDrag(e.clientX);
+});
+
+window.addEventListener("mouseup", endDrag);

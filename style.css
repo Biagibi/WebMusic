@@ -27,6 +27,17 @@ body {
     font-weight: 400;
 }
 
+.carousel {
+    position: relative;
+    width: 300px;
+    height: 415px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: pan-y;
+    cursor: grab;
+}
+
 .carousel-container {
     position: relative;
     width: 100%;
@@ -34,6 +45,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.carousel.dragging {
+    cursor: grabbing;
 }
 
 button {
@@ -70,15 +85,6 @@ button {
 .icon {
     width: 24px;
     height: 24px; 
-}
-
-.carousel {
-    position: relative;
-    width: 300px;
-    height: 415px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card {
