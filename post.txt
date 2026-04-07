@@ -1,0 +1,15 @@
+Music Carousel Player
+
+Desenvolvi um player de música interativo com carrossel 3D usando JavaScript puro 🎧
+
+A ideia foi criar uma interface onde cada música funciona como um card interativo, permitindo navegação com setas, indicadores laterais e controle de reprodução integrado.
+
+O maior desafio foi sincronizar o estado do carrossel com o player de áudio, garantindo que apenas uma música toque por vez e que a interface responda corretamente às interações do usuário.
+
+Também implementei barra de progresso dinâmica e manipulação direta do DOM para controlar toda a experiência sem uso de bibliotecas.
+
+Tecnologias utilizadas: HTML, CSS e JavaScript
+
+Gostaria muito de feedbacks! 🚀
+🔗 GitHub:
+🔗 Link: 
