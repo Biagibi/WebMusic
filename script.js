@@ -22,29 +22,28 @@ audios.forEach((audio) => {
     });
 });
 
-function updateCarousel() {
-    cards.forEach((card, index) => {        
-        card.className = "card";
+function updateCarousel() cards.forEach((card, index) => {        
+    card.classList.remove("active", "next", "next-2", "prev", "prev-2", "hidden");
 
-        if (index === current) {
-            card.classList.add("active");
-        } 
-        else if (index === (current + 1) % cards.length) {
-            card.classList.add("next");
-        } 
-        else if (index === (current + 2) % cards.length) {
-            card.classList.add("next-2");
-        } 
-        else if (index === (current - 1 + cards.length) % cards.length) {
-            card.classList.add("prev");
-        } 
-        else if (index === (current - 2 + cards.length) % cards.length) {
-            card.classList.add("prev-2");
-        } 
-        else {
-            card.classList.add("hidden");
-        }
-    });
+    if (index === current) {
+        card.classList.add("active");
+    } 
+    else if (index === (current + 1) % cards.length) {
+        card.classList.add("next");
+    } 
+    else if (index === (current + 2) % cards.length) {
+        card.classList.add("next-2");
+    } 
+    else if (index === (current - 1 + cards.length) % cards.length) {
+        card.classList.add("prev");
+    } 
+    else if (index === (current - 2 + cards.length) % cards.length) {
+        card.classList.add("prev-2");
+    } 
+    else {
+        card.classList.add("hidden");
+    }
+});
 
     document.querySelectorAll(".play svg").forEach(icon => {
         icon.innerHTML = `
