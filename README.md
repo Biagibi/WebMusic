@@ -3,7 +3,7 @@
 Interface web de player de música com design moderno e responsivo.
 
 ## 🔗 Acesse o projeto
-👉 [biagibi.github.io/WebMusic](https://biagibi.github.io/WebMusic/)
+👉 [beatrizcavalcante-dev.github.io/WebMusic](https://beatrizcavalcante-dev.github.io/WebMusic/)
 
 ## 🛠️ Tecnologias utilizadas
 - HTML5
